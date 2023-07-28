@@ -13,4 +13,18 @@
         public function __construct(){
             parent::connect();
         }
+
+        public function findAuteur($id){ //fonction permettant de recup dans la bdd les topics d'une categorie
+
+
+            //requet sql
+       $sql = "SELECT *                
+               FROM ".$this->tableName."a";
+        
+               
+       return $this->getMultipleResults(
+           DAO::select($sql, ['id' =>$id]),
+           $this->className
+       );
+   }
     }

@@ -15,6 +15,30 @@ class Bibliotheque extends AbstractController implements ControllerInterface{
     }
 
      //!----------------------------- AUTEUR ----------------------------------------------
+
+    public function listAuteurs($id){
+        $AuteurManager = new AuteurManager();
+
+        return [
+            "view" => VIEW_DIR. "bibliotheque/listAuteurs.php",
+            "data" => [
+                "livres" => $AuteurManager->findAuteur($id)
+            ]
+        ];
+    }
+ 
      //!----------------------------- LIVRE ----------------------------------------------
+
+     public function listLivres($id){
+        $livreManager = new livreManager();
+
+        return [
+            "view" => VIEW_DIR. "bibliotheque/listLivres.php",
+            "data" => [
+                "livres" => $livreManager->findLivre($id)
+            ]
+        ];
+    }
+
      //!----------------------------- GENRE ----------------------------------------------
     }
