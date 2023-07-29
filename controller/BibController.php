@@ -8,7 +8,7 @@ use App\ControllerInterface;
 use Model\Managers\AuteurManager;
 use Model\Managers\LivreManager;
 
-class Bibliotheque extends AbstractController implements ControllerInterface{
+class BibController extends AbstractController implements ControllerInterface{
 
     public function index(){
 
@@ -16,13 +16,15 @@ class Bibliotheque extends AbstractController implements ControllerInterface{
 
      //!----------------------------- AUTEUR ----------------------------------------------
 
-    public function listAuteurs($id){
+    public function listAuteurs(){
+        //var_dump('test');die;
         $AuteurManager = new AuteurManager();
 
-        return [
-            "view" => VIEW_DIR. "bibliotheque/listAuteurs.php",
+        return 
+        [
+            "view" => VIEW_DIR. "bib/listAuteurs.php",
             "data" => [
-                "livres" => $AuteurManager->findAuteur($id)
+                "auteurs" => $AuteurManager->findAll(['nom',"ASC"])
             ]
         ];
     }
@@ -30,14 +32,27 @@ class Bibliotheque extends AbstractController implements ControllerInterface{
      //!----------------------------- LIVRE ----------------------------------------------
 
      public function listLivres($id){
-        $livreManager = new livreManager();
+        $livreManager = new LivreManager();
 
         return [
-            "view" => VIEW_DIR. "bibliotheque/listLivres.php",
+            "view" => VIEW_DIR. "bib/listLivres.php",
             "data" => [
                 "livres" => $livreManager->findLivre($id)
             ]
         ];
+    }
+
+    public function listLivreByAuteur($id){
+        $livreManager = new livreManager();
+        
+        
+        // var_dump();die;
+            return [
+                "view" => VIEW_DIR."bib/listLivres.php",
+            "data" => [
+                
+                "livres" => $livreManager->findLivreByAuteur($id),
+                ]];
     }
 
      //!----------------------------- GENRE ----------------------------------------------

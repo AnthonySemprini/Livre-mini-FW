@@ -14,13 +14,23 @@
             parent::connect();
         }
 
-        public function findLivre($id){ //fonction permettant de recup dans la bdd les topics d'une categorie
+        public function findLivre($id){
+
+            $sql = "SELECT *
+                FROM ".$this->tableName." l";
+            return   $this->getMultipleResults(
+                DAO::select($sql),
+                $this->className
+            ); 
+        }
+
+        public function findLivreByAuteur($id){ //fonction permettant de recup dans la bdd les topics d'une categorie
 
 
             //requet sql
        $sql = "SELECT *                
-               FROM ".$this->tableName."l";
-        
+               FROM ".$this->tableName." l
+               WHERE auteur_id = :id"; 
                
        return $this->getMultipleResults(
            DAO::select($sql, ['id' =>$id]),

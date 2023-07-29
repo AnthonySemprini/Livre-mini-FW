@@ -1,5 +1,2 @@
-<h1>Hello world</h1>
+<h1>Bienvenue dans la biblihothéque</h1>
 
-<?php
-
-//Applications/MAMP/htdocs/Livre-mini-FW/view/home.php

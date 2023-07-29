@@ -1,0 +1,2 @@
+http://localhost:8888/Livre-mini-FW/index.php?ctrl=bib&action=listAuteurs
+/Applications/MAMP/htdocs/Livre-mini-FW/view/bib/listLivres.php

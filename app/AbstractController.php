@@ -12,19 +12,13 @@
                 $url.= $action ? "&action=".$action : "";
                 $url.= $id ? "&id=".$id : "";
             }
-            // en premier mettre le controller en 2 la paage topic puis id si besoin $this->redirectTo("forum",'listTopics',$id);  
+            // en premier mettre le controller en 2 la paage topic puis id si besoin $this->redirectTo("bib",'listTopics',$id);  
             else $url = "/";
             header("Location: $url");
             die();
 
         }
 
-        public function restrictTo($role){
-            
-            if(!Session::getUser() || !Session::getUser()->hasRole($role)){
-                $this->redirectTo("security", "login");
-            }
-            return;
-        }
+       
 
     }

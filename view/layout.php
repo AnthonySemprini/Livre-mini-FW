@@ -26,11 +26,11 @@
                     <div id="nav-left class="navLeft">
                         <a href="index.php?home">Accueil</a>
                         <span>&nbsp;-&nbsp;</span>
-                        <a href="index.php?ctrl=Bibliotheque&action=listAuteurs">Liste des auteurs</a>
-                        <a href="index.php?ctrl=Bibliotheque&action=listLivres">Liste des livres</a>
+                        <a href="index.php?ctrl=bib&action=listAuteurs">Liste des auteurs</a>
+                        <a href="index.php?ctrl=bib&action=listLivres">Liste des livres</a>
+                       <?php //var_dump();die;?>
                         
                     </div>
-                    
                 </nav>
 
             </header>

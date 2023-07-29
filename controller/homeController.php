@@ -5,9 +5,9 @@
     use App\Session;
     use App\AbstractController;
     use App\ControllerInterface;
-    use Model\Managers\UserManager;
-    use Model\Managers\TopicManager;
-    use Model\Managers\PostManager;
+    use Model\Managers\LivreManager;
+    use Model\Managers\AuteurManager;
+   
     
     class HomeController extends AbstractController implements ControllerInterface{
 
@@ -22,13 +22,19 @@
         
    
        
-        public function forumRules(){
+        public function bibRules(){
             
             return [
                 "view" => VIEW_DIR."rules.php"
             ];
         }
 
+        public function biblioRules(){
+            
+            return [
+                "view" => VIEW_DIR."rules.php"
+            ];
+        }
         /*public function ajax(){
             $nb = $_GET['nb'];
             $nb++;
