@@ -28,7 +28,17 @@ class BibController extends AbstractController implements ControllerInterface{
             ]
         ];
     }
- 
+    
+    public function detailAuteur($id){
+        $auteurManager = new AuteurManager();
+
+        return[
+            "view" => VIEW_DIR."bib/detailAuteur.php",
+            "data" => [
+                "auteurs" => $auteurManager->findAuteurByLivre($id)
+            ]
+            ];
+    }
      //!----------------------------- LIVRE ----------------------------------------------
 
      public function listLivres($id){
@@ -48,7 +58,7 @@ class BibController extends AbstractController implements ControllerInterface{
         
         // var_dump();die;
             return [
-                "view" => VIEW_DIR."bib/listLivres.php",
+                "view" => VIEW_DIR."bib/listLivreByAuteur.php",
             "data" => [
                 
                 "livres" => $livreManager->findLivreByAuteur($id),

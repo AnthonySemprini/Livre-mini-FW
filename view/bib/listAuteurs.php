@@ -1,17 +1,24 @@
 <?php
 
 $auteurs = $result["data"]['auteurs'];
-//var_dump("ok");die;
+$array_of_auteur = array();
+foreach($auteurs as $auteur){
+    $array_of_auteur[] = $auteur;
+}
+$nbAuteur = count($array_of_auteur);
+
 if(isset($auteurs)){
 ?>
-    <h1>Liste des auteurs</h1>
+    <h1>Liste auteurs</h1>
+    <p>Il y a <font color="red"><?=$nbAuteur?></font> auteurs dans la liste</p>
+
     <table style=" border: solid black 2px ; border-collapse: collapse">
     <th style="padding: 10px ; border: solid black 2px">Id de l'livre</th>
     <th style="padding: 10px ; border: solid black 2px">Titre</th>
     <th style="padding: 10px ; border: solid black 2px">Date de naissance</th>
     <th style="padding: 10px ; border: solid black 2px">Genre</th>
 <?php
-foreach($auteurs as $auteur){
+foreach($array_of_auteur as $auteur){
     ?>
 
     <tr class="auteur">

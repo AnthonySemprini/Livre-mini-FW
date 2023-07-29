@@ -14,5 +14,18 @@
             parent::connect();
         }
 
+        public function findAuteurByLivre($id){ //fonction permettant de recup dans la bdd les topics d'une categorie
 
+
+            //requet sql
+       $sql = "SELECT *                
+               FROM ".$this->tableName." a
+               INNER JOIN livre l ON a.id_auteur = l.auteur_id
+               WHERE id_livre = :id"; 
+               
+       return $this->getMultipleResults(
+           DAO::select($sql, ['id' =>$id]),
+           $this->className
+       );
+   }
     }
