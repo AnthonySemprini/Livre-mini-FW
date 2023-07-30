@@ -26,9 +26,11 @@
                     <div id="nav-left class="navLeft">
                         <a href="index.php?home">Accueil</a>
                         <span>&nbsp;-&nbsp;</span>
-                        <a href="index.php?ctrl=bib&action=listAuteurs">Liste des auteurs</a>
-                        <a href="index.php?ctrl=bib&action=listLivres">Liste des livres</a>
-                        <a href="index.php?ctrl=bib&action=listGenres">Liste des genres</a>
+                        
+                           <a href="index.php?ctrl=bib&action=listAuteurs">Liste des auteurs</a>
+                            <a href="index.php?ctrl=bib&action=listLivres">Liste des livres</a>
+                            <a href="index.php?ctrl=bib&action=listGenres">Liste des genres</a>
+                        
                        <?php //var_dump();die;?>
                         
                     </div>

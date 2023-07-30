@@ -10,7 +10,7 @@ if(isset($genres)){
 
 foreach($genres as $genre){
 ?>
-    <p><a href="index.php?ctrl=bib&action=listLivreByAuteur&id=<?=$genre->getId()?>"><?=$genre->getNom()?></a></p>
+    <p><a href="index.php?ctrl=bib&action=listLivreByGenre&id=<?=$genre->getId()?>"><?=$genre->getNom()?></a></p>
 <?php
 }
 }

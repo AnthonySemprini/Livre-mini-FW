@@ -8,7 +8,7 @@ $nbLivre = count($array_of_livres);
 if(isset($livres)){
 ?>
     <h1>Liste livres par genre</h1>
-    <p>Il y a <?=$nbLivre?> livres dans la liste</p>
+    <p>Il y a <font color="red"><?=$nbLivre?></font> livres dans la liste</p>
 <table style=" border: solid black 2px ; border-collapse: collapse">
     <th style="padding: 10px ; border: solid black 2px">Id livre</th>
     <th style="padding: 10px ; border: solid black 2px">Titre</th>
