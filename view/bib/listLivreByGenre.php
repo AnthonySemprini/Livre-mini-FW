@@ -7,9 +7,8 @@ foreach($livres as $livre){
 $nbLivre = count($array_of_livres);
 if(isset($livres)){
 ?>
-    <h1>Liste livres par hauteur</h1>
+    <h1>Liste livres par genre</h1>
     <p>Il y a <?=$nbLivre?> livres dans la liste</p>
-
 <table style=" border: solid black 2px ; border-collapse: collapse">
     <th style="padding: 10px ; border: solid black 2px">Id livre</th>
     <th style="padding: 10px ; border: solid black 2px">Titre</th>
@@ -23,11 +22,9 @@ foreach($array_of_livres as $livre){
         <td style=" text-align: center ; padding: 10px ; border: solid black 2px"><?=$livre->getId()?></td>
         <td style="text-align: center ; padding: 10px ; border: solid black 2px"><a href="index.php?ctrl=bib&action=detailAuteur&id=<?=$livre->getId()?>"><?=$livre->getTitre()?></a></td>
         <td style="text-align: center ; padding: 10px ; border: solid black 2px"><?=$livre->getDateParution()?></td>
-        
-       
     </tr>
 
-    <?php
+<?php
 }
 ?>
 </table>

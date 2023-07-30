@@ -65,6 +65,18 @@ class BibController extends AbstractController implements ControllerInterface{
                 "livres" => $livreManager->findLivreByAuteur($id),
                 ]];
     }
+    public function listLivreGenre($id){
+        $livreManager = new livreManager();
+        
+        
+        // var_dump();die;
+            return [
+                "view" => VIEW_DIR."bib/listLivreByGenre.php",
+            "data" => [
+                
+                "livres" => $livreManager->findLivreByAuteur($id),
+                ]];
+    }
 
      //!----------------------------- GENRE ----------------------------------------------
     

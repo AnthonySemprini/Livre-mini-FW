@@ -3,6 +3,7 @@
     
     use App\Manager;
     use App\DAO;
+    Use Model\Managers\GenreManager;
     Use Model\Managers\AuteurManager;
 
     class LivreManager extends Manager{
@@ -18,19 +19,34 @@
 
             $sql = "SELECT *
                 FROM ".$this->tableName." l";
+               
+                
             return   $this->getMultipleResults(
                 DAO::select($sql),
                 $this->className
             ); 
         }
 
-        public function findLivreByAuteur($id){ //fonction permettant de recup dans la bdd les topics d'une categorie
+        public function findLivreByAuteur($id){ 
 
 
             //requet sql
        $sql = "SELECT *                
                FROM ".$this->tableName." l
                WHERE auteur_id = :id"; 
+               
+       return $this->getMultipleResults(
+           DAO::select($sql, ['id' =>$id]),
+           $this->className
+       );
+   }
+        public function findLivreByGenre($id){ 
+
+
+            //requet sql
+       $sql = "SELECT *                
+               FROM ".$this->tableName." l
+               WHERE genre_id = :id"; 
                
        return $this->getMultipleResults(
            DAO::select($sql, ['id' =>$id]),
