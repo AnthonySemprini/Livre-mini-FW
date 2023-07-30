@@ -7,6 +7,7 @@ use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\AuteurManager;
 use Model\Managers\LivreManager;
+use Model\Managers\GenreManager;
 
 class BibController extends AbstractController implements ControllerInterface{
 
@@ -66,4 +67,15 @@ class BibController extends AbstractController implements ControllerInterface{
     }
 
      //!----------------------------- GENRE ----------------------------------------------
+    
+     public function listGenres($id){
+        $genreManager = new GenreManager();
+
+        return [
+            "view" => VIEW_DIR. "bib/listgenres.php",
+            "data" => [
+                "genres" => $genreManager->findgenre($id)
+            ]
+        ];
+    }
     }
