@@ -40,6 +40,41 @@ class BibController extends AbstractController implements ControllerInterface{
             ]
             ];
     }
+    
+    public function addAuteur($id){ 
+        $auteurManager = new AuteurManager();
+        
+            
+            
+           
+            
+            if(isset($_POST['submit'])){
+                //var_dump($_POST['submit']);die;
+                
+                if(isset($_POST['nom']) && ($_POST['prenom']) && ($_POST['dateNaissance']) && ($_POST['sexe']) && 
+                (!empty($_POST['nom'])) && ($_POST['prenom']) && ($_POST['dateNaissance']) && ($_POST['sexe'])){   //? verifie si title existe et si il est vide
+                    $nom = filter_input(INPUT_POST,'nom',FILTER_SANITIZE_FULL_SPECIAL_CHARS);                   //? protege de  faille xss
+                    $prenom = filter_input(INPUT_POST,'prenom',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    $dateNaissance = filter_input(INPUT_POST,'dateNaissance',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    $sexe = filter_input(INPUT_POST,'sexe',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    
+                    //var_dump("test4");die;
+                    
+                    
+                    $auteurManager->add( $data=[
+                        "nom"=>$nom,
+                        "prenom"=>$prenom,
+                        "dateNaissance"=>$dateNaissance,
+                        "sexe"=>$sexe,
+                    ]);
+                
+                
+                
+                }
+                $this->redirectTo("bib",'listAuteurs',$id);   
+            }
+        
+    }
      //!----------------------------- LIVRE ----------------------------------------------
 
      public function listLivres($id){

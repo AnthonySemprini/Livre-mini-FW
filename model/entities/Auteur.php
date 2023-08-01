@@ -10,7 +10,7 @@ final class Auteur extends Entity{
     private $prenom;
     private $dateNaissance;
     private $sexe;
-    private $livre;
+ 
 
     public function __construct($data){         
         $this->hydrate($data);        
@@ -125,25 +125,5 @@ final class Auteur extends Entity{
                 return $this;
         }
 
-//!------------------ LIVRE ----------------------------------
 
-     /**
-         * Get the value of livre
-         */ 
-        public function getLivre()
-        {
-                return $this->livre;
-        }
-
-        /**
-         * Set the value of livre
-         *
-         * @return  self
-         */ 
-        public function setLivre($livre)
-        {
-                $this->livre = $livre;
-
-                return $this;
-        }
 }
