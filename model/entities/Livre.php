@@ -9,7 +9,6 @@ final class Livre extends Entity{
     private $titre;
     private $resume;
     private $dateParution;
-    private $genre;
     private $auteur;
 
     public function __construct($data){         
@@ -122,24 +121,4 @@ final class Livre extends Entity{
 
                 return $this;
         }
-        
-//!------------------ genre ----------------------------------
-
-        public function getGenre()
-        {
-                return $this->genre;
-        }
-
-        /**
-         * Set the value of genre
-         *
-         * @return  self
-         */ 
-        public function setGenre($genre)
-        {
-                $this->genre = $genre;
-
-                return $this;
-        }
-        
 }

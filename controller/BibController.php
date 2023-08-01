@@ -113,6 +113,42 @@ class BibController extends AbstractController implements ControllerInterface{
                 ]];
     }
 
+    public function addLivre($id){ 
+        $livreManager = new LivreManager();
+  
+        
+            
+            
+           
+            
+            if(isset($_POST['submit'])){
+                //var_dump($_POST['submit']);die;
+                
+                if(isset($_POST['titre']) && ($_POST['resume']) && ($_POST['dateParution']) && 
+                (!empty($_POST['titre'])) && ($_POST['resume']) && ($_POST['dateParution'])){   //? verifie si title existe et si il est vide
+                    $titre = filter_input(INPUT_POST,'titre',FILTER_SANITIZE_FULL_SPECIAL_CHARS);                   //? protege de  faille xss
+                    $resume = filter_input(INPUT_POST,'resume',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    $dateparution = filter_input(INPUT_POST,'dateParution',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                   
+                    
+                    //var_dump("test4");die;
+                   
+                    
+                    $livreManager->add( $data=[
+                        "titre"=>$titre,
+                        "resume"=>$resume,
+                        "dateparution"=>$dateparution,
+                        
+                    ]);
+                
+                
+                
+                }
+                $this->redirectTo("bib",'listLivres',$id);   
+            }
+        
+    }
+
      //!----------------------------- GENRE ----------------------------------------------
     
      public function listGenres($id){
